@@ -37,17 +37,17 @@ const ProductCard: React.FC<{ product: ProductProps }> = ({ product }) => {
         {/* Product Image */}
         <div className="flex items-center justify-center w-full">
           <img
-            className=" group-hover/card:blur-xs w-[200px]  "
+            className="md:group-hover/card:blur-xs  w-[200px]  "
             src={product.image_url}
             alt="Product"
           />
         </div>
-        <div className=" absolute top-3 left-3 w-12 h-12 flex items-center justify-center rounded-full bg-green-500 group-hover/card:blur-xs text-white">
+        <div className=" absolute top-3 left-3 w-12 h-12 flex items-center justify-center rounded-full bg-green-500 md:group-hover/card:blur-xs text-white">
           -30%
         </div>
 
         {/* Product Details */}
-        <div className="flex flex-col items-start justify-center mt-3 px-5 bg-[#F4F5F7] w-full py-10 space-y-1 group-hover/card:blur-xs">
+        <div className="flex flex-col items-start justify-center mt-3 px-5 bg-[#F4F5F7] w-full py-10 space-y-1 md:group-hover/card:blur-xs">
           <h1 className="text-xl font-semibold">{product.name}</h1>
 
           {/* Description 10 character porjonto show korbe */}
@@ -70,10 +70,22 @@ const ProductCard: React.FC<{ product: ProductProps }> = ({ product }) => {
               Stock: {product.stock}
             </p>
           </div>
+          <div className="flex md:hidden items-center justify-between w-full">
+            <CartBtn
+              handleClick={handleAddToCart}
+              title="Add to Cart"
+              icons={<SiShopee />}
+            />
+            <CartBtn
+              handleClick={handleNavigate}
+              title="Details"
+              icons={<BiDetail />}
+            />
+          </div>
         </div>
 
         {/* Hover Section */}
-        <div className="absolute top-0 left-0 w-full h-full bg-[#3e3d3d82] bg-opacity-50 flex items-center justify-center flex-col text-white opacity-0 group-hover/card:opacity-100 transition-opacity duration-300">
+        <div className="absolute top-0 left-0 w-full h-full bg-[#3e3d3d82] bg-opacity-50 hidden md:flex items-center justify-center flex-col text-white opacity-0 group-hover/card:opacity-100 transition-opacity duration-300">
           <div className=" flex items-center justify-center gap-3 flex-col">
             <CartBtn
               handleClick={handleAddToCart}

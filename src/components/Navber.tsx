@@ -78,7 +78,7 @@ export const Navber = () => {
 
         {/* User Dropdown Menu */}
         <div
-          className="relative flex items-center justify-center lg:gap-3 "
+          className="relative flex items-center justify-center gap-3 "
           ref={dropdownRef}
         >
           <ButtonIcon
@@ -139,7 +139,7 @@ export const Navber = () => {
             icon={<IoMdHeartEmpty />}
           />
 
-          <div ref={dropdownRef}>
+          <div ref={dropdownRef} className=" relative">
             <ButtonIcon
               onClick={() => setIsCart(!isCart)}
               icon={<MdOutlineShoppingCart />}
@@ -149,31 +149,36 @@ export const Navber = () => {
                 {displayCount}
               </span>
             )}
-            {isCart && (
-              <div className=" absolute w-[417px] shadow-lg rounded-lg bg-[#fff] top-0 right-0 p-5 active:duration-500">
-                <div className="flex items-center justify-between">
-                  <h1 className=" text-2xl capitalize">Shopping Cart</h1>
-
-                  <ButtonIcon
-                    className=" text-slate-400"
-                    icon={<BsBagX />}
-                    onClick={() => setIsCart(!isCart)}
-                  />
-                </div>
-                <hr className="text-slate-300 w-full my-5" />
-
-                <Cart />
-
-                {/* footer of cart */}
-              </div>
-            )}
           </div>
+
           <ButtonIcon
             className="xl:hidden block duration-200"
             icon={<BiMenu />}
             onClick={() => setIsMenu(!isMenu)}
           />
         </div>
+        {isCart && (
+          <div
+            className={`absolute w-[auto] md:w-[417px] flex items-center justify-between flex-col h-screen shadow-lg rounded-lg bg-[#fff] py-10  top-0 right-0 p-5 ${
+              !isCart
+                ? "translate-y-[100%] duration-200"
+                : "translate-y-[0%] duration-200"
+            }`}
+          >
+            <div className="flex items-center w-full justify-between">
+              <h1 className=" text-2xl capitalize">Shopping Cart</h1>
+
+              <ButtonIcon
+                className=" text-slate-400"
+                icon={<BsBagX />}
+                onClick={() => setIsCart(!isCart)}
+              />
+            </div>
+            <Cart />
+
+            {/* footer of cart */}
+          </div>
+        )}
       </div>
     </div>
   );

@@ -5,11 +5,11 @@ const BlogPost = () => {
   return (
     <div>
       <img
-        className=" w-[100%] rounded-4xl"
+        className=" w-[100%] rounded-xl xl:rounded-2xl"
         src="https://images.unsplash.com/photo-1739531722390-04a6942231e2?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         alt=""
       />
-      <div className=" flex items-center justify-start gap-5 py-3">
+      <div className=" flex items-center justify-start gap-1 xl:gap-5 py-3">
         <div className=" flex items-center justify-center gap-2 text-slate-700 text-sm py-2 px-2">
           {" "}
           <BiUser /> Admin{" "}

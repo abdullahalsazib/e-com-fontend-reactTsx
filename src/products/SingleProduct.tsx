@@ -3,8 +3,9 @@ import { getProductById, ProductProps } from "../api/Product";
 import { Link, useParams } from "react-router-dom";
 import { useCart } from "../context/ProductContext";
 import { FaAngleRight } from "react-icons/fa";
-import { BiPlus, BiRightArrow, BiSolidStar, BiStar } from "react-icons/bi";
+import { BiRightArrow, BiSolidStar, BiStar } from "react-icons/bi";
 import { Footer } from "../Pages/Footer";
+import { Testemonila } from "../Pages/Shop";
 
 const SingleProduct = () => {
   const { addToCart, updateQuantity } = useCart();
@@ -45,7 +46,7 @@ const SingleProduct = () => {
 
   return (
     <div className="pt-19">
-      <div className="bg-[#fff3e3] w-full py-8 px-[10%] text-lg text-slate-500 flex items-center gap-5 capitalize">
+      <div className="bg-[#fff3e3] w-full py-8 px-2 xl:px-[10%] md:text-lg text-slate-500 flex items-center gap-2 md:gap-5 capitalize">
         <Link className="hover:text-slate-600 cursor-pointer" to={"/"}>
           Home
         </Link>
@@ -55,37 +56,42 @@ const SingleProduct = () => {
         </Link>
         <FaAngleRight className="text-xl text-black" />
         <span className="relative h-[50px] right-0 px-[1px] bg-slate-400 w-[0.2px]"></span>
-        <p className="text-slate-900">{product.name}</p>
+        <p className="text-slate-900 text-xs md:text-sm">{product.name}</p>
       </div>
 
-      <div className="flex w-full px-[10%] gap-10 flex-row py-10 h-[70vh]">
+      <div className="flex items-center justify-center w-full px-5 xl:px-[10%] gap-10 flex-col xl:flex-row py-10 ">
         {/* Product Images */}
-        <div className="w-1/2 flex items-start justify-start flex-row gap-10">
+        <div className="xl:w-1/2 flex items-start justify-start flex-row gap-10">
           <div className="flex items-start justify-center flex-col gap-10">
             <img
               src={product.image_url}
               alt="error"
-              className="w-20 h-20 bg-slate-100 ring-1 ring-blue-500 p-1 rounded-lg shadow-2xl"
+              className="w-20 h-20 lg:block hidden  bg-slate-100 ring-1 ring-blue-500 p-1 rounded-lg shadow-2xl"
             />
             <img
               src={product.image_url}
               alt="error"
               title={product.image_url}
-              className="w-20 h-20 bg-slate-100 ring-1 ring-blue-500 p-1 rounded-lg shadow-2xl"
+              className="w-20 h-20 lg:block hidden bg-slate-100 ring-1 ring-blue-500 p-1 rounded-lg shadow-2xl"
             />
           </div>
-          <img
-            className="w-[80%] bg-slate-100 shadow-2xl rounded-lg ring-1 ring-blue-200 opacity-90 "
-            src={product.image_url}
-            alt=""
-          />
+          <div className=" w-full h-full lg:w-[500px] lg:h-[500px]  overflow-hidden ">
+            <img
+              className=" object-cover bg-slate-100 rounded-lg  opacity-90 "
+              src={product.image_url}
+              alt=""
+            />
+          </div>
         </div>
 
         {/* Product Details */}
-        <div className="w-1/2 flex items-start justify-between gap-20 flex-col">
+        <div className=" w-full xl:w-1/2 flex items-start justify-between gap-20 flex-col">
           <div className="space-y-1">
-            <h1 className="text-[42px] font-bold capitalize w-full flex items-center justify-between">
-              {product.name} <p className=" text-sm text-blue-500">stock: {product.stock}</p>
+            <h1 className=" text-lg md:text-[32px] font-bold capitalize w-full flex items-center justify-between">
+              {product.name}
+              <p className=" hidden lg:block text-sm text-blue-500">
+                stock: {product.stock}
+              </p>
             </h1>
             <p className="text-slate-600 text-2xl">৳. {product.price}tk</p>
 
@@ -104,15 +110,15 @@ const SingleProduct = () => {
               </p>
             </div>
 
-            <p className="w-[60%] text-sm text-slate-700">
+            <p className=" w-full lg:w-[60%] text-sm text-slate-700">
               {product.description}
             </p>
 
             {/* Cart Interaction */}
-            <div className="flex items-center justify-around gap-10 py-5">
+            <div className="flex items-center justify-around flex-row gap-4 lg:gap-10 py-5">
               <div className="flex items-center justify-center border-2 rounded-lg border-slate-400 hover:bg-slate-100 group/icon">
                 <button
-                  className="cursor-pointer text-lg py-4 px-5 active:scale-125"
+                  className="cursor-pointer text-lg py-3 md:py-4 px-3 md:px-5 active:scale-125"
                   onClick={() => {
                     if (cartItem > 0) setCartItem(cartItem - 1); // Only decrement if cartItem is greater than 0
                   }}
@@ -122,7 +128,7 @@ const SingleProduct = () => {
                 <input
                   type="number"
                   value={cartItem}
-                  className="w-20 text-center border-none outline-none"
+                  className=" w-5 lg:w-20 text-center border-none outline-none"
                   onChange={(e) => {
                     const value = Number(e.target.value);
                     if (!isNaN(value) && value > 0 && value <= product.stock) {
@@ -134,7 +140,7 @@ const SingleProduct = () => {
                   }}
                 />
                 <button
-                  className="cursor-pointer text-lg py-4 px-5 active:scale-125"
+                  className="cursor-pointer text-lg py-3 md:py-4 px-3 md:px-5 active:scale-125"
                   onClick={() => setCartItem(cartItem + 1)}
                 >
                   +
@@ -143,11 +149,12 @@ const SingleProduct = () => {
 
               {/* Add to Cart Button */}
               <CommonBtnCart title="Add to Cart" onClick={handleAddToCart} />
-              <CommonBtnCart title="Compare" icon={<BiPlus />} />
+              {/* <CommonBtnCart  title="Compare" icon={<BiPlus />} /> */}
             </div>
           </div>
         </div>
       </div>
+      <Testemonila/>
 
       <Footer />
     </div>

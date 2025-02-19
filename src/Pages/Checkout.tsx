@@ -1,6 +1,5 @@
-import { CommonHeader, TastMonialCart } from "./Shop";
+import { CommonHeader, Testemonila } from "./Shop";
 import { Footer } from "./Footer";
-import { TastMoinalObj } from "../data/data";
 import { useCart } from "../context/ProductContext";
 import { GoDotFill } from "react-icons/go";
 import Checkout2 from "./CheckOut2";
@@ -17,10 +16,10 @@ function Checkout() {
       <div>
         <CommonHeader title="Checkout" />
       </div>
-      <div className=" px-[10%] py-20">
+      <div className=" px-4 lg:px-32 xl:px-[10%] py-20">
         <h1 className="text-4xl capitalize ">Billing details</h1>
-        <div className="flex items-center justify-between gap-15 py-5">
-          <div className=" flex flex-col gap-4 w-[50%]">
+        <div className="flex items-center justify-between lg:flex-row flex-col gap-15 py-5">
+          <div className="flex flex-col gap-4 w-full lg:w-[50%]">
             <div className="flex items-center justify-center gap-3">
               <BillingInputs labelTitle="First Name" type="text" isReq />
               <BillingInputs labelTitle="Last Name" type="text" isReq />
@@ -34,7 +33,7 @@ function Checkout() {
             <BillingInputs labelTitle="Email address" type="email" isReq />
             <BillingInputs type="text" placeholder="Additional information" />
           </div>
-          <div className="w-[40%] p-6 self-start rounded-2xl ">
+          <div className=" w-full lg:w-[40%] lg:p-6 self-start rounded-2xl ">
             <div className=" flex items-center justify-between">
               <h1 className=" text-3xl capitalize">Product</h1>
               <h1 className=" text-2xl">Subtotal</h1>
@@ -43,7 +42,10 @@ function Checkout() {
               {cart.length > 0 && (
                 <div className=" w-full h-full">
                   {cart.map((item, index) => (
-                    <div key={index} className="flex justify-between capitalize text-slate-500 pb-2 text-sm ">
+                    <div
+                      key={index}
+                      className="flex justify-between capitalize text-slate-500 pb-2 text-sm "
+                    >
                       <span>
                         {item.name}{" "}
                         <span className=" lowercase text-xs">x</span>{" "}
@@ -82,16 +84,7 @@ function Checkout() {
         </div>
       </div>
 
-      <div className=" flex items-center justify-between flex-row bg-[#F9F1E7] py-15 px-[10%]">
-        {TastMoinalObj.map((item, index) => (
-          <TastMonialCart
-            key={index}
-            h1Title={item.title}
-            pTitle={item.pTitle}
-            icons={item.icons}
-          />
-        ))}
-      </div>
+      <Testemonila />
 
       <Footer />
     </>

@@ -1,9 +1,7 @@
 import { RiDeleteBin5Line } from "react-icons/ri";
 import { useCart } from "../context/ProductContext";
 import { Footer } from "./Footer";
-import { CommonHeader, TastMonialCart } from "./Shop";
-import React from "react";
-import { TastMoinalObj } from "../data/data";
+import { CommonHeader, Testemonila } from "./Shop";
 import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
@@ -18,14 +16,14 @@ const Cart = () => {
   return (
     <>
       <CommonHeader title="Cart" />
-      <div className="flex flex-col md:flex-row items-start justify-between px-[10%] gap-10 py-20">
+      <div className="flex flex-col md:flex-row items-start justify-between px-3 md:px-[10%] gap-10 py-20">
         {/* Cart Table Section */}
         <div className="w-full md:w-[60%]">
           <h1 className="text-2xl font-bold mb-4">Shopping Cart</h1>
           {cart.length === 0 ? (
             <p className="text-center text-gray-600">Your cart is empty.</p>
           ) : (
-            <div className="overflow-x-auto">
+            <div className="overflow-x-auto w-full">
               <table className="w-full ">
                 <thead>
                   <tr className="bg-gray-200">
@@ -113,16 +111,7 @@ const Cart = () => {
           </div>
         )}
       </div>
-      <div className=" flex items-center justify-between flex-row bg-[#F9F1E7] py-15 px-[10%]">
-        {TastMoinalObj.map((item, index) => (
-          <TastMonialCart
-            key={index}
-            h1Title={item.title}
-            pTitle={item.pTitle}
-            icons={item.icons}
-          />
-        ))}
-      </div>
+      <Testemonila />
 
       <Footer />
     </>

@@ -1,6 +1,5 @@
-import { CommonHeader, TastMonialCart } from "./Shop";
+import { CommonHeader, Testemonila } from "./Shop";
 import { Footer } from "./Footer";
-import { TastMoinalObj } from "../data/data";
 import BlogPost from "./Blog/BlogPost";
 import { BiSearch } from "react-icons/bi";
 
@@ -8,13 +7,13 @@ const Blog = () => {
   return (
     <>
       <CommonHeader title="blog" />
-      <div className=" px-[10%] py-32  flex items-center justify-between  gap-15">
-        <div className=" w-[80%] h-full flex items-center justify-center flex-col gap-y-20">
+      <div className=" px-2 xl:px-[10%] py-3 xl:py-32  flex items-center justify-between flex-col xl:flex-row  gap-15">
+        <div className=" w-full xl:w-[80%] h-full flex items-center justify-center flex-col gap-y-7 xl:gap-y-20">
           <BlogPost />
           <BlogPost />
           <BlogPost />
         </div>
-        <div className=" w-[40%] h-full self-start">
+        <div className=" w-full xl:w-[40%] h-full self-start">
           <div className=" relative w-full">
             <input
               type="text"
@@ -22,9 +21,9 @@ const Blog = () => {
             />
             <BiSearch className=" text-2xl absolute top-3.5 right-10 cursor-pointer" />
           </div>
-          <div className=" py-10 px-3">
+          <div className=" py-3 lg:py-10 px-3">
             <h1 className=" text-2xl capitalize">Categories</h1>
-            <div className=" w-full space-y-10 py-4 px-10 text-slate-700">
+            <div className=" w-full space-y-10 py-4 xl:px-10 text-xs md:text-sm text-slate-700">
               <div className=" flex items-center justify-between w-full">
                 <p>Carfts</p>
                 <p>3</p>
@@ -53,16 +52,7 @@ const Blog = () => {
           </div>
         </div>
       </div>
-      <div className=" flex items-center justify-between flex-row bg-[#F9F1E7] py-15 px-[10%]">
-        {TastMoinalObj.map((item, index) => (
-          <TastMonialCart
-            key={index}
-            h1Title={item.title}
-            pTitle={item.pTitle}
-            icons={item.icons}
-          />
-        ))}
-      </div>
+      <Testemonila />
       <Footer />
     </>
   );
@@ -73,9 +63,9 @@ export default Blog;
 const RecentPosts = () => {
   return (
     <>
-      <div className=" bg-[#f8f8f8] border-2 border-gray-50 shadow-md flex items-center justify-start gap-10 py-2 px-3 rounded-xl">
+      <div className=" bg-[#f8f8f8] border-2 border-gray-50 shadow-sm flex items-center justify-start gap-3 lg:gap-10 py-1 lg:py-2 px-1 lg:px-3 rounded-md">
         <img
-          className="w-25 rounded-2xl"
+          className="w-25 rounded-lg"
           src="https://images.unsplash.com/photo-1739531722390-04a6942231e2?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           alt=""
         />

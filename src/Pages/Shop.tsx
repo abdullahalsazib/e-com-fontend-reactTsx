@@ -14,9 +14,9 @@ const Shop = () => {
         {/* common header */}
         <CommonHeader title="Shop" />
         {/* filler */}
-        <div className=" flex items-center justify-between flex-row bg-[#F9F1E7] py-5 px-[10%]">
+        <div className=" flex items-center justify-between flex-col gap-5 xl:flex-row bg-[#F9F1E7] py-5 xl:px-[10%]">
           {/* shopNav */}
-          <div className="flex items-center justify-center gap-15 capitalize text-xl">
+          <div className="flex items-center justify-center xl:gap-15 capitalize xl:text-xl">
             {/* sec1 */}
             <div className=" flex items-center justify-center gap-1">
               <CgFilters />
@@ -26,7 +26,7 @@ const Shop = () => {
               <BsMenuApp />
               <BsMenuButton />
             </div>
-            <p className=" text-2xl font-extrabold text-slate-400">|</p>
+            <p className="text-2xl font-extrabold text-slate-400">|</p>
             <div>
               <p>showing 1-16 of 32 results</p>
             </div>
@@ -42,19 +42,10 @@ const Shop = () => {
             </div>
           </div>
         </div>
-        <div className=" py-5 px-[10%]">
+        <div className=" py-5 xl:px-[10%]">
           <ProductList />
         </div>
-        <div className=" flex items-center justify-between flex-row bg-[#F9F1E7] py-15 px-[10%]">
-          {TastMoinalObj.map((item, index) => (
-            <TastMonialCart
-              key={index}
-              h1Title={item.title}
-              pTitle={item.pTitle}
-              icons={item.icons}
-            />
-          ))}
-        </div>
+        <Testemonila/>
       </div>
       <Footer />
     </>
@@ -62,6 +53,23 @@ const Shop = () => {
 };
 
 export default Shop;
+
+export const Testemonila = () => {
+  return (
+    <>
+      <div className=" grid sm:grid-cols-4 bg-[#F9F1E7] py-4 gap-4 md:gap-3 md:py-15 px-2 xl:px-[10%]">
+        {TastMoinalObj.map((item, index) => (
+          <TastMonialCart
+            key={index}
+            h1Title={item.title}
+            pTitle={item.pTitle}
+            icons={item.icons}
+          />
+        ))}
+      </div>
+    </>
+  );
+};
 
 interface TastMonialCartProps {
   icons: React.ReactNode;
@@ -75,10 +83,10 @@ export const TastMonialCart: React.FC<TastMonialCartProps> = ({
 }) => {
   return (
     <>
-      <div className=" flex items-center justify-center gap-3">
-        <div className=" text-[70px]">{icons}</div>
-        <div>
-          <h1 className=" text-2xl">{h1Title}</h1>
+      <div className=" flex items-center justify-center lg:flex-row flex-col w-full py-5 gap-3">
+        <div className=" text-2xl lg:text-[70px]">{icons}</div>
+        <div className=" lg:text-left text-center">
+          <h1 className="lg:text-2xl">{h1Title}</h1>
           <p className=" text-sm text-slate-500">{pTitle}</p>
         </div>
       </div>
@@ -103,8 +111,8 @@ export const CommonHeader: React.FC<CommonHeaderProps> = ({ title }) => {
             alt="Logo"
           />
           <div className=" z-40">
-            <h1 className=" text-[72px] font-bold uppercase"> {title} </h1>
-            <div className=" flex items-center justify-center gap-2 text-md text-gray-900 z-50">
+            <h1 className=" text-sm lg:text-lg xl:text-[72px] font-bold uppercase"> {title} </h1>
+            <div className=" flex items-center justify-center gap-2 text-sm md:text-md text-gray-900 z-50">
               <Link to={"/"} className=" peer/link hover:text-slate-700 py-3 ">
                 Home
               </Link>

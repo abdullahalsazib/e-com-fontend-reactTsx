@@ -33,13 +33,15 @@ const ProductCard: React.FC<{ product: ProductProps }> = ({ product }) => {
   };
   return (
     <>
-      <div className="cursor-pointer duration-200 relative group/card h-[100%] flex items-start justify-between flex-col">
+      <div className="cursor-pointer duration-200 relative group/card h-[100%] w-[auto] flex items-start justify-between flex-col">
         {/* Product Image */}
-        <img
-          className=" w-full object-cover group-hover/card:blur-xs"
-          src={product.image_url}
-          alt="Product"
-        />
+        <div className="flex items-center justify-center w-full">
+          <img
+            className=" group-hover/card:blur-xs w-[200px]  "
+            src={product.image_url}
+            alt="Product"
+          />
+        </div>
         <div className=" absolute top-3 left-3 w-12 h-12 flex items-center justify-center rounded-full bg-green-500 group-hover/card:blur-xs text-white">
           -30%
         </div>

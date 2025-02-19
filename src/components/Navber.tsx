@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
-import { BiLogOut, BiUser } from "react-icons/bi";
+import { BiMenu, BiUser } from "react-icons/bi";
 import Logout from "../Pages/Log_Sign/Logout";
 import { navLinks } from "../data/NavData";
 import { IoMdHeartEmpty } from "react-icons/io";
@@ -13,6 +13,7 @@ import { RiDeleteBin5Line } from "react-icons/ri";
 
 export const Navber = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isMenu, setIsMenu] = useState<boolean>(false);
   const [isCart, setIsCart] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const { user } = useContext(AuthContext)!;
@@ -30,6 +31,7 @@ export const Navber = () => {
       ) {
         setIsDropdownOpen(false);
         setIsCart(false);
+        setIsMenu(false);
       }
     };
 
@@ -41,18 +43,27 @@ export const Navber = () => {
 
   return (
     <div className="w-full bg-[#FFFFFF] shadow-xs z-50 fixed ">
-      <div className="w-full py-4 px-[10%] flex items-center justify-between">
+      <div
+        className="w-full py-4  px-2 md:px-5 xl:px-[10%] flex items-center justify-between"
+        ref={dropdownRef}
+      >
         {/* Logo */}
         <Link to="/">
           <img
-            className="w-35"
+            className="xl:w-35 w-32"
             src="https://wpocean.com/html/tf/pengu/assets/images/logo.svg"
             alt="Logo"
           />
         </Link>
 
         {/* Navigation Links */}
-        <ul className="flex items-center gap-15">
+        <ul
+          className={`flex items-center justify-center xl:flex-row gap-15 bg-white xl:sticky absolute xl:h-auto xl:w-auto xl:top-0 xl:right-0 h-[400px] w-full rounded-lg shadow-2xl md:w-1/2 top-20 right-0 flex-col ${
+            !isMenu
+              ? "xl:translate-x-0 translate-x-[100%] duration-200"
+              : "translate-x-0 duration-200"
+          }`}
+        >
           {navLinks.map((item, index) => (
             <li key={index}>
               <Link
@@ -67,7 +78,7 @@ export const Navber = () => {
 
         {/* User Dropdown Menu */}
         <div
-          className="relative flex itc justify-center gap-4"
+          className="relative flex items-center justify-center lg:gap-3 "
           ref={dropdownRef}
         >
           <ButtonIcon
@@ -99,11 +110,7 @@ export const Navber = () => {
                     ✏️ Edit Profile
                   </Link> */}
 
-                  <Logout
-                    icon={<BiLogOut />}
-                    title="Logout"
-                    className="flex items-center justify-start gap-3 px-4 py-2 hover:bg-gray-100 "
-                  />
+                  <Logout />
                 </>
               ) : (
                 <>
@@ -123,8 +130,14 @@ export const Navber = () => {
               )}
             </div>
           )}
-          <ButtonIcon icon={<IoSearch />} />
-          <ButtonIcon icon={<IoMdHeartEmpty />} />
+          <ButtonIcon
+            className="lg:block hidden duration-200"
+            icon={<IoSearch />}
+          />
+          <ButtonIcon
+            className="lg:block hidden duration-200"
+            icon={<IoMdHeartEmpty />}
+          />
 
           <div ref={dropdownRef}>
             <ButtonIcon
@@ -155,6 +168,11 @@ export const Navber = () => {
               </div>
             )}
           </div>
+          <ButtonIcon
+            className="xl:hidden block duration-200"
+            icon={<BiMenu />}
+            onClick={() => setIsMenu(!isMenu)}
+          />
         </div>
       </div>
     </div>
@@ -171,9 +189,9 @@ const ButtonIcon: React.FC<ButtonIconProps> = (props) => {
     <>
       <button
         onClick={props.onClick}
-        className={` ${props.className} flex items-center justify-center group/btn text-2xl gap-2 p-1.5 cursor-pointer focus:outline-none w-8 h-8 rounded-full duration-200 hover:text-4xl `}
+        className={` ${props.className} flex items-center justify-center group/btn text-2xl gap-2 p-1.5 cursor-pointer focus:outline-none w-8 h-8 rounded-full duration-200  `}
       >
-        <div className=" group-focus/btn:scale-50 duration-200">
+        <div className=" group-active/btn:scale-120 duration-200">
           {props.icon}
         </div>
       </button>

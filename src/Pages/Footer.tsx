@@ -1,61 +1,116 @@
 import { Link } from "react-router-dom";
-import { helpOption, navLinks } from "../data/NavData";
-import { RxButton } from "react-icons/rx";
+import {
+  FaFacebookF,
+  FaTwitter,
+  FaInstagram,
+  FaLinkedinIn,
+} from "react-icons/fa";
 import LineFooter from "./Dashboard/LineFooter";
 
 export const Footer = () => {
   return (
-    <>
-      <div className="flex items-start justify-between px-[10%] py-10 border-t-[1px] border-gray-300 ">
-        <div className=" flex items-start h-full justify-around flex-col">
+    <footer className="bg-slate-100 text-black py-10 px-6 md:px-16">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+        {/* Brand Section */}
+        <div>
           <Link to="/">
             <img
-              className="w-35"
+              className="w-32 mb-4"
               src="https://wpocean.com/html/tf/pengu/assets/images/logo.svg"
               alt="Logo"
             />
           </Link>
-          <p className=" text-sm text-slate-500 ">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt
-            quidem ratione deserunt.
+          <p className="text-sm text-gray-400">
+            Bringing you the best services with quality and reliability.
           </p>
         </div>
-        <div className=" capitalize">
-          <h1 className=" text-slate-500 pb-5">link</h1>
-          <ul className=" flex items-start justify-center flex-col gap-10">
-            {navLinks.map((item, index) => (
-              <li key={index}>
-                <Link to={item.hrefTo}>{item.title}</Link>
+
+        {/* Navigation Section */}
+        <div className="flex flex-col md:flex-row justify-between">
+          <div>
+            <h2 className="text-lg font-semibold mb-4">Quick Links</h2>
+            <ul className="space-y-3">
+              <li>
+                <Link to="/about" className="text-gray-400 hover:text-white">
+                  About
+                </Link>
               </li>
-            ))}
-          </ul>
-        </div>
-        <div className="capitalize">
-          <h1 className=" text-slate-500 pb-5">help</h1>
-          <ul className=" flex items-start justify-center flex-col gap-10">
-            {helpOption.map((item, index) => (
-              <li key={index}>
-                <Link to={item.hrefTo}>{item.title}</Link>
+              <li>
+                <Link to="/services" className="text-gray-400 hover:text-white">
+                  Services
+                </Link>
               </li>
-            ))}
-          </ul>
+              <li>
+                <Link to="/contact" className="text-gray-400 hover:text-white">
+                  Contact
+                </Link>
+              </li>
+              <li>
+                <Link to="/blog" className="text-gray-400 hover:text-white">
+                  Blog
+                </Link>
+              </li>
+            </ul>
+          </div>
+          <div className="mt-6 md:mt-0">
+            <h2 className="text-lg font-semibold mb-4">Support</h2>
+            <ul className="space-y-3">
+              <li>
+                <Link to="/faq" className="text-gray-400 hover:text-white">
+                  FAQ
+                </Link>
+              </li>
+              <li>
+                <Link to="/privacy" className="text-gray-400 hover:text-white">
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link to="/terms" className="text-gray-400 hover:text-white">
+                  Terms & Conditions
+                </Link>
+              </li>
+            </ul>
+          </div>
         </div>
-        <div className=" capitalize">
-          <h1 className=" text-slate-500 pb-5">newsletter</h1>
-          <div className=" flex items-center justify-center gap-5">
+
+        {/* Newsletter & Social Media Section */}
+        <div>
+          <h2 className="text-lg font-semibold mb-4">
+            Subscribe to Our Newsletter
+          </h2>
+          <div className="flex items-center space-x-2">
             <input
-              type="text"
-              className=" py-2 px-5 border-2 border-slate-300"
-              placeholder="Enter your email address.."
+              type="email"
+              placeholder="Your email address"
+              className="w-full py-2 px-3 rounded-md bg-gray-800 border border-gray-600 text-white focus:outline-none focus:border-white"
             />
-            <button className=" py-2 px-5 uppercase border-2 flex items-center justify-between gap-5 rounded-md cursor-pointer hover:border-slate-300 duration-200">
-              <RxButton />
+            <button className="bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded-md">
               Subscribe
             </button>
           </div>
+
+          <h2 className="text-lg font-semibold mt-6">Follow Us</h2>
+          <div className="flex space-x-4 mt-3">
+            <a href="#" className="text-gray-400 hover:text-white">
+              <FaFacebookF size={20} />
+            </a>
+            <a href="#" className="text-gray-400 hover:text-white">
+              <FaTwitter size={20} />
+            </a>
+            <a href="#" className="text-gray-400 hover:text-white">
+              <FaInstagram size={20} />
+            </a>
+            <a href="#" className="text-gray-400 hover:text-white">
+              <FaLinkedinIn size={20} />
+            </a>
+          </div>
         </div>
       </div>
-      <LineFooter />
-    </>
+
+      <div className="border-t border-gray-700 mt-8 pt-4 text-center text-gray-500">
+       <LineFooter/>
+      </div>
+    </footer>
   );
 };

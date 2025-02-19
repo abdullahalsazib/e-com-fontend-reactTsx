@@ -51,6 +51,7 @@ const AppContent = () => {
         ) : (
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/navber" element={<Navber />} />
             <Route path="/shop" element={<Shop />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/checkout" element={<Checkout />} />

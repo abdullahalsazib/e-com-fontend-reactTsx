@@ -2,13 +2,16 @@
 import React, { useState, useEffect, useRef } from "react";
 import Sideber from "./Sideber";
 import { BsMenuButton } from "react-icons/bs";
-import { BiLogOut, BiMessageAdd, BiSearch } from "react-icons/bi";
-import { FaArrowRightLong, FaUser } from "react-icons/fa6";
+import { BiSearch } from "react-icons/bi";
+import { FaArrowRightLong } from "react-icons/fa6";
 import { MdMailOutline } from "react-icons/md";
 import { IoIosNotificationsOutline } from "react-icons/io";
 import { CgClose } from "react-icons/cg";
-import { FiSettings } from "react-icons/fi";
+import { FiHexagon } from "react-icons/fi";
 import { userDropDown } from "./DashboardData";
+import LineFooter from "../Pages/Dashboard/LineFooter";
+import MyChart from "./D-pages/MyChart";
+import Home from "./D-pages/Home";
 
 const Dashboard = () => {
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -52,10 +55,10 @@ const Dashboard = () => {
   return (
     <div className="w-full h-screen flex flex-row">
       <Sideber isSideOpen={openSide} />
-      <main className="w-full bg-gray-50 dark:bg-slate-900 dark:text-white h-screen transition-all duration-300">
+      <main className="w-full bg-gray-50 dark:bg-[#273142] dark:text-white transition-all duration-300 flex items-center justify-between flex-col h-screen">
         {/* Navbar */}
-        <nav className="w-full py-4 bg-white dark:bg-slate-900 border-b border-blue-300 dark:border-blue-900 px-5 flex items-center justify-between">
-          <div className="flex items-center gap-4">
+        <nav className="w-full py-4 bg-white dark:bg-[#273142] border-b border-blue-300 dark:border-blue-900 px-5 flex items-center justify-between">
+          <div className="flex items-center gap-10">
             {/* Sidebar Toggle Button */}
             <button
               onClick={() => setOpenSide(!openSide)}
@@ -153,6 +156,23 @@ const Dashboard = () => {
             )}
           </div>
         </nav>
+        {/* content */}
+        <section className=" w-full  overflow-y-scroll custom-scrollbar  bg-[#fff] dark:bg-[#1B2431]">
+          <div className="pt-4 pb-7 px-5 text-lg flex items-center justify-between ">
+            <h1>Dashboard </h1>
+            <h1 className=" flex  items-center justify-center gap-3 text-sm">
+              <FiHexagon /> <p>Dashboard</p>-<p>404</p>
+            </h1>
+          </div>
+          <div className="w-[100%] h-screen  flex items-center justify-center pb-5">
+            <div className="text-2xl bg-transparent w-[98%] h-screen inset-shadow-sm">
+              {/* content for change to route */}
+              <Home />
+            </div>
+          </div>
+        </section>
+        <LineFooter />
+        {/* footer */}
       </main>
     </div>
   );

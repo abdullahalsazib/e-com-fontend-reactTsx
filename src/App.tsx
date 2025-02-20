@@ -17,6 +17,7 @@ import Login from "./Pages/Log_Sign/Login";
 import Register from "./Pages/Log_Sign/Register";
 import Logout from "./Pages/Log_Sign/Logout";
 import Alert from "./components/Alert";
+// import Dashboard from "./Dashboard/Dashboard";
 
 const Loader = () => (
   <div className="flex items-center justify-center h-screen">

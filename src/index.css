@@ -28,3 +28,23 @@
 .animate-border {
   animation: borderAnimation 2s ease-in-out infinite;
 }
+
+
+/* Custom Scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #1B2431; /* Light gray background */
+  border-radius: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #4e46e55d; /* Purple scrollbar */
+  border-radius: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #1b243177; /* Darker shade on hover */
+}

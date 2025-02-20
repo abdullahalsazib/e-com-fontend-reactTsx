@@ -10,3 +10,21 @@
 .sm-btn {
   @apply cursor-pointer py-2 px-5 rounded-md;
 }
+
+
+/* Define the border animation */
+@keyframes borderAnimation {
+  0% {
+    border-color: rgba(0, 0, 0, 0);
+  }
+  50% {
+    border-color: rgba(0, 0, 255, 0.459); /* Red color */
+  }
+  100% {
+    border-color: rgba(0, 0, 0, 0); /* Transparent again */
+  }
+}
+
+.animate-border {
+  animation: borderAnimation 2s ease-in-out infinite;
+}

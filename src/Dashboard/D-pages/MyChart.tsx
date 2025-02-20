@@ -66,9 +66,9 @@ const options = {
 
 const MyChart = () => {
   return (
-    <div className=" w-1/2 p-4">
+    <div className=" w-[100%] p-4">
       <h2 className="text-xl font-bold dark:text-gray-300 text-gray-700 mb-4">📈 Monthly Sales</h2>
-      <div className="h-100 text-slate-300">
+      <div className="h-100 w-auto text-slate-300">
         <Line data={data} options={options} />
       </div>
     </div>

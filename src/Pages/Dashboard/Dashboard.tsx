@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-// import { AuthContext } from "../../context/AuthContext";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import Sideber from "./Sideber";
 import { BsMenuButton } from "react-icons/bs";
@@ -7,9 +6,7 @@ import { BiSearchAlt2, BiUserCircle } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import { FcSettings } from "react-icons/fc";
 import { CgWebsite } from "react-icons/cg";
-import UpdateProfile from "../ProfileUpdate";
-import Profile from "../Profile";
-import { DashboardHome } from "./DashboardHome";
+import UpdateProfile from "../../Dashboard/ProfileUpdate";
 import Ecommearce from "../../Dashboard/D-pages/Ecommearce";
 import ProductTable from "../../products/ProductTable";
 import Logout from "../Log_Sign/Logout";
@@ -121,10 +118,6 @@ function Dashboard() {
           <div className=" w-full min-h-full flex items-center justify-center">
             <div className="w-full  ">
               <Routes>
-                {/* Home Route */}
-                <Route path="/" element={<DashboardHome />} />
-                {/* Home Route */}
-                <Route path="/profile" element={<Profile />} />
                 {/* Update Profile Route */}
                 <Route path="ecommearce" element={<Ecommearce />} />
                 <Route path="update" element={<UpdateProfile />} />

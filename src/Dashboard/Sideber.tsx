@@ -1,14 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import { FaJediOrder } from "react-icons/fa";
 import { FcCustomerSupport } from "react-icons/fc";
 import { IoSettings } from "react-icons/io5";
 import { MdDashboard } from "react-icons/md";
 import { RiDashboard2Fill } from "react-icons/ri";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
+import { CgProfile } from "react-icons/cg";
+import { BiCategory } from "react-icons/bi";
 
 const DashboardRoute = [
   { title: "Dashboard", hrefLink: "/dashboard", icon: <MdDashboard /> },
-  { title: "Orders", hrefLink: "/dashboard/orders", icon: <FaJediOrder /> },
+
+  // { title: "Orders", hrefLink: "/dashboard/orders", icon: <FaJediOrder /> },
+  { title: "category", hrefLink: "/dashboard/category", icon: <BiCategory /> },
   {
     title: "E-commearce",
     hrefLink: "/dashboard/ecommerce",
@@ -19,10 +24,12 @@ const DashboardRoute = [
     hrefLink: "/dashboard/customers",
     icon: <FcCustomerSupport />,
   },
+  { title: "Profile", hrefLink: "/dashboard/profile", icon: <CgProfile /> },
   { title: "Settings", hrefLink: "/dashboard/settings", icon: <IoSettings /> },
 ];
 
 const Sidebar: React.FC<{ isOpen: boolean }> = ({ isOpen }) => {
+  const { user } = useContext(AuthContext)!;
   return (
     <div
       className={`bg-gray-800 text-white flex flex-col items-center justify-between h-screen transition-all duration-300 ${
@@ -83,7 +90,7 @@ const Sidebar: React.FC<{ isOpen: boolean }> = ({ isOpen }) => {
             alt=""
           />
           <div className={!isOpen ? "hidden" : "block"}>
-            <h1>Jhon Deo</h1>
+            <h1 className=" capitalize">{!user ? "gust user" : user?.name}</h1>
             <p className=" text-slate-400 text-xs">Admin</p>
           </div>
         </div>

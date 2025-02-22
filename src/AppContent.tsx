@@ -17,6 +17,8 @@ import Dashboard from "./Dashboard/Dashboard";
 import { Navber } from "./components/Navber";
 import Loader from "./components/Loader";
 import PrivateRoute from "./components/PrivateRoute";
+import ForgotPassword from "./Pages/Log_Sign/Fotgot";
+import ResetPassword from "./Pages/Log_Sign/ResetPass";
 
 const AppContent = () => {
   const location = useLocation();
@@ -56,6 +58,8 @@ const AppContent = () => {
             <Route path="/contact" element={<Contact />} />
             <Route path="/detils/:id" element={<SingleProduct />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/forgot-password" element={<ForgotPassword />} />
+            <Route path="/reset-password" element={<ResetPassword />} />
             <Route path="/register" element={<Register />} />
             <Route path="*" element={<NotFound />} />
 
@@ -63,9 +67,9 @@ const AppContent = () => {
             <Route
               path="/dashboard/*"
               element={
-                // <PrivateRoute>
+                <PrivateRoute>
                 <Dashboard />
-                // </PrivateRoute>
+                 </PrivateRoute>
               }
             />
             {/* <Route path="/dashboard/*" element={<Dashboard />} /> */}

@@ -1,6 +1,6 @@
 import { SeeMoreBtn } from "../products/SingleProduct";
 import { Footer } from "./Footer";
-import ProductList from "./ProductList";
+import ProductList from "../Dashboard/ProductList";
 
 function Home() {
   return (

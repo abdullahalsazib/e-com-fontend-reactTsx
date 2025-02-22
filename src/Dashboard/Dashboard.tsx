@@ -2,17 +2,18 @@
 import { useState, useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import Navbar from "./D-pages/Navber";
-import Orders from "./D-pages/Order";
 import Customers from "./D-pages/Customer";
 import Settings from "./D-pages/Setting";
 import DashboardHome from "./D-pages/DashboardHome";
 import Loader from "../components/Loader"; // Assuming you already have the Loader component
 import Sidebar from "./Sideber";
 import Ecommearce from "./D-pages/Ecommearce";
+import Profile from "./D-pages/Profile";
+import ProductTable from "../products/ProductTable";
 
 const Dashboard = () => {
   const location = useLocation();
-  const [isOpen, setIsOpen] = useState<boolean>(false)
+  const [isOpen, setIsOpen] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
 
   // This will show the loader when navigating to any route within /dashboard
@@ -33,9 +34,10 @@ const Dashboard = () => {
           ) : (
             <Routes>
               <Route path="/" element={<DashboardHome />} />
+              <Route path="/profile" element={<Profile />} />
               <Route path="/ecommerce" element={<Ecommearce />} />
 
-              <Route path="/orders" element={<Orders />} />
+              <Route path="/category" element={<ProductTable />} />
               <Route path="/customers" element={<Customers />} />
               <Route path="/settings" element={<Settings />} />
             </Routes>

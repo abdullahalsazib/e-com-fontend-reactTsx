@@ -1,6 +1,6 @@
 import { BsMenuApp, BsMenuButton } from "react-icons/bs";
 import { CgFilters } from "react-icons/cg";
-import ProductList from "./ProductList";
+import ProductList from "../Dashboard/ProductList";
 import { Footer } from "./Footer";
 import { FaAngleRight } from "react-icons/fa";
 import React from "react";
@@ -45,7 +45,7 @@ const Shop = () => {
         <div className=" py-5 xl:px-[10%]">
           <ProductList />
         </div>
-        <Testemonila/>
+        <Testemonila />
       </div>
       <Footer />
     </>
@@ -111,7 +111,10 @@ export const CommonHeader: React.FC<CommonHeaderProps> = ({ title }) => {
             alt="Logo"
           />
           <div className=" z-40">
-            <h1 className=" text-sm lg:text-lg xl:text-[72px] font-bold uppercase"> {title} </h1>
+            <h1 className=" text-sm lg:text-lg xl:text-[72px] font-bold uppercase">
+              {" "}
+              {title}{" "}
+            </h1>
             <div className=" flex items-center justify-center gap-2 text-sm md:text-md text-gray-900 z-50">
               <Link to={"/"} className=" peer/link hover:text-slate-700 py-3 ">
                 Home

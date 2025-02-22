@@ -20,10 +20,7 @@ const Logout: React.FC = () => {
 
   return (
     <div className="flex justify-center items-center">
-      <button
-        onClick={handleLogout}
-        className="py-2 px-5 bg-red-600 text-white rounded-md hover:bg-red-700"
-      >
+      <button onClick={handleLogout} className="bg-blue-500 hover:bg-blue-600 active:bg-blue-800 cursor-pointer px-4 py-2 rounded">
         Logout
       </button>
     </div>

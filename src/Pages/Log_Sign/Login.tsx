@@ -1,176 +1,6 @@
-// import { useState } from "react";
-// import { useForm, SubmitHandler } from "react-hook-form";
-// import { FaEye, FaEyeSlash } from "react-icons/fa";
-// import { MdAccountCircle } from "react-icons/md";
-// import axios from "axios";
-
-// // Define the types for form data
-// interface ILoginFormData {
-//   email: string;
-//   password: string;
-// }
-
-// function Login() {
-//   const {
-//     register,
-//     handleSubmit,
-//     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-//     formState: { errors },
-//   } = useForm<ILoginFormData>();
-
-//   // Define the saveForm function with proper data type
-//   const saveFrom: SubmitHandler<ILoginFormData> = async (data) => {
-//     console.log(data);
-
-//     try {
-//       // Pass the user data to the login function
-//       const response = await axios.post(
-//         "https://e-com-auth-golang.onrender.com/login",
-//         data
-//       ); // Pass data here
-//       if (response.status === 200) {
-//         const responseData = response.data;
-//         // Store the JWT token in a cookie
-//         // Save the token in localStorage after login
-//         localStorage.setItem("token", responseData.token);
-
-//         console.log("Logged in successfully:", localStorage);
-//       }
-//     } catch (error) {
-//       console.log(error);
-//     }
-//   };
-
-//   return (
-//     <div>
-//       <div className="bg-slate-100 flex items-center justify-center flex-col gap-10">
-//         <h1 className="flex items-center justify-center gap-5">
-//           Login to the account? <MdAccountCircle />
-//         </h1>
-//         <form
-//           onSubmit={handleSubmit(saveFrom)}
-//           className="flex flex-col items-center justify-center"
-//         >
-//           <label className="flex flex-col gap-2">
-//             Email:
-//             <input
-//               className="py-2 px-5 border-2 rounded-md"
-//               type="email"
-//               {...register("email")}
-//               placeholder="Enter your email"
-//             />
-//           </label>
-//           <label className="flex flex-col gap-2">
-//             Password:
-//             <input
-//               className="py-2 px-5 border-2 rounded-md"
-//               type="password"
-//               {...register("password")}
-//               placeholder="Enter your password"
-//             />
-//           </label>
-//           <input
-//             type="submit"
-//             value={"Login"}
-//             className="py-2 mt-2 cursor-pointer px-5 border-2 rounded-md"
-//           />
-//         </form>
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default Login;
-
-// interface LabelInputFildProps {
-//   type?: string;
-//   htmlFor: string;
-//   labelText: string;
-//   placeholder: string;
-//   value?: string;
-//   onChange?: (value: React.ChangeEvent<HTMLInputElement>) => void;
-// }
-// export const LabelInputFild: React.FC<LabelInputFildProps> = (props) => {
-//   return (
-//     <>
-//       <div className="flex items-start flex-col">
-//         <label
-//           className="capitalize text-[16px] font-extralight text-gray-500 "
-//           htmlFor={props.htmlFor}
-//         >
-//           {props.labelText}
-//         </label>
-//         <input
-//           className="py-3 px-3 w-full border-[1px] border-gray-200 outline-none hover:border-gray-400 duration-200 text-[15px] font-light"
-//           value={props.value}
-//           onChange={props.onChange}
-//           type={props.type}
-//           id={props.htmlFor}
-//           placeholder={props.placeholder}
-//         />
-//       </div>
-//     </>
-//   );
-// };
-
-// export const PasswordFild: React.FC<LabelInputFildProps> = (props) => {
-//   const [eyeOpen, setEyeOpen] = useState(false);
-//   return (
-//     <>
-//       <div className=" relative">
-//         <LabelInputFild
-//           htmlFor={props.htmlFor}
-//           labelText={props.labelText}
-//           placeholder={props.placeholder}
-//           value={props.value}
-//           onChange={props.onChange}
-//           type={eyeOpen ? "text" : props.type}
-//         />
-//         {eyeOpen ? (
-//           <FaEye
-//             className=" absolute top-[50%] right-5 text-[22px] cursor-pointer text-slate-600 duration-200"
-//             onClick={() => setEyeOpen(!eyeOpen)}
-//           />
-//         ) : (
-//           <FaEyeSlash
-//             className=" absolute top-[50%] right-5 text-[22px] cursor-pointer text-slate-600 duration-200"
-//             onClick={() => setEyeOpen(!eyeOpen)}
-//           />
-//         )}
-//       </div>
-//     </>
-//   );
-// };
-
-// interface SubmitButtonProps {
-//   type: "button" | "reset" | "submit";
-//   title: string;
-//   onClick?: () => void;
-// }
-
-// export const SubmitButton: React.FC<SubmitButtonProps> = (props) => {
-//   return (
-//     <>
-//       <button
-//         className=" w-full hover:border-[2px] border-[2px] border-white py-3 px-3 cursor-pointer duration-200 hover:border-red-400 bg-[#F56061] hover:bg-white text-white hover:text-black"
-//         type={props.type}
-//         onClick={props.onClick}
-//       >
-//         {props.title}
-//       </button>
-//     </>
-//   );
-// };
 import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import {
-  RiFacebookBoxFill,
-  RiLinkedinBoxFill,
-  RiTwitterXFill,
-} from "react-icons/ri";
-// import { AuthContext } from "../../context/AuthContext";
-// import { getUser, login } from "../../api/Auth";
 import LineFooter from "../Dashboard/LineFooter";
 import { useForm } from "react-hook-form";
 import axios from "axios";
@@ -186,6 +16,7 @@ const Login = () => {
   const { setUser } = useContext(AuthContext)!;
   const navigate = useNavigate();
   const { showAlert } = useAlertStore();
+  const [ischeck, setIsCheck] = useState<boolean>(false)
   const {
     register,
     handleSubmit,
@@ -198,10 +29,11 @@ const Login = () => {
     // console.log(data);
     try {
       // Pass the user data to the login function
-      const response = await axios.post(
-        "https://e-com-auth-golang.onrender.com/login",
-        data
-      ); // Pass data here
+      const response = await axios.post("http://localhost:8005/login", data); // Pass data here
+      // const response = await axios.post(
+      //   "https://e-com-auth-golang.onrender.com/login",
+      //   data
+      // ); // Pass data here
       if (response.status === 200) {
         const responseData = response.data;
         // Store the JWT token in a cookie
@@ -274,6 +106,11 @@ const Login = () => {
                     {...register("email")}
                     placeholder="Enter your email"
                   />
+                  {errors.email && (
+                    <p className="text-red-500 text-xs lowercase">
+                      {errors.email.message}
+                    </p>
+                  )}
                 </label>
                 <label className="capitalize text-[16px] font-extralight text-gray-500 ">
                   <h3>
@@ -285,12 +122,18 @@ const Login = () => {
                     {...register("password")}
                     placeholder="Enter your password"
                   />
+                  {errors.password && (
+                    <p className="text-red-500 text-xs lowercase">
+                      {errors.password.message}
+                    </p>
+                  )}
                 </label>
                 {/* form */}
 
                 <div className="flex items-center justify-between flex-row">
                   <span className="flex items-center justify-center gap-2">
                     <input
+                      checked={()=> setIsCheck(!ischeck)}
                       type="checkbox"
                       id="check"
                       className=" cursor-pointer w-4 h-4"
@@ -314,11 +157,11 @@ const Login = () => {
                   or
                 </h1>
               </div>
-              <div className=" flex items-center justify-between text-4xl gap-4">
+              {/* <div className=" flex items-center justify-between text-4xl gap-4">
                 <RiFacebookBoxFill />
                 <RiTwitterXFill />
                 <RiLinkedinBoxFill />
-              </div>
+              </div> */}
               <h3 className=" text-[15px]">
                 Don't have an account?{" "}
                 <Link to="/register" className="text-[14px] text-[#F56061]">

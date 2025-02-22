@@ -33,10 +33,11 @@ function Register() {
 
     try {
       // Pass the user data to the register API
-      const response = await axios.post(
-        "https://e-com-auth-golang.onrender.com/register",
-        data
-      );
+      const response = await axios.post("http://localhost:8005/register", data);
+      // const response = await axios.post(
+      //   "https://e-com-auth-golang.onrender.com/register",
+      //   data
+      // );
 
       if (response.status === 200) {
         const responseData = response.data;
@@ -44,7 +45,8 @@ function Register() {
         navigate("/login");
         console.log("User registered successfully:", localStorage);
       }
-    } catch (error) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } catch (error: any) {
       //  console.log("Error registering user:", error);
       showAlert(`User alrady have ${error.message}`, "error");
     }
@@ -145,6 +147,21 @@ function Register() {
                   </p>
                 )}
               </label>
+              <div className="flex items-center justify-between flex-row w-full">
+                <span className="flex items-center justify-center gap-2">
+                  <input
+                    type="checkbox"
+                    id="check"
+                    className=" cursor-pointer w-4 h-4"
+                  />
+                  <label className=" cursor-pointer" htmlFor="check">
+                    Remember Me
+                  </label>
+                </span>
+                <a href="#" className="text-[#F56061] text-[16px]">
+                  Forgot Password?
+                </a>
+              </div>
 
               <SubmitButton title="Register" type="submit" />
             </form>

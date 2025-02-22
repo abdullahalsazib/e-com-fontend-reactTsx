@@ -10,7 +10,7 @@ import { CgWebsite } from "react-icons/cg";
 import UpdateProfile from "../ProfileUpdate";
 import Profile from "../Profile";
 import { DashboardHome } from "./DashboardHome";
-import Ecommearce from "./Ecommearce";
+import Ecommearce from "../../Dashboard/D-pages/Ecommearce";
 import ProductTable from "../../products/ProductTable";
 import Logout from "../Log_Sign/Logout";
 

@@ -1,6 +1,6 @@
 import ProductForm from "../../components/ProductFrom";
 import ProductTable from "../../products/ProductTable";
-import LineFooter from "./LineFooter";
+import LineFooter from "../../Pages/Dashboard/LineFooter";
 
 const Ecommearce = () => {
   return (

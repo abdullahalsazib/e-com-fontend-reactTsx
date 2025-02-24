@@ -3,7 +3,7 @@ import { BiTrendingUp } from "react-icons/bi";
 import { CgShoppingCart } from "react-icons/cg";
 import { FaDollarSign } from "react-icons/fa";
 import { FiUsers } from "react-icons/fi";
-import Home from "./Home";
+
 
 const DashboardHome: React.FC = () => {
   return (

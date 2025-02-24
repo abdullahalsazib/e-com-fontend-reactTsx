@@ -3,7 +3,7 @@
 
 * {
   font-family: "Roboto", serif;
-  /* font-family: "Poppins", fantasy; */
+  font-family: "Poppins", fantasy;
   font-weight: 600;
 }
 
@@ -18,11 +18,11 @@
     border-color: rgba(0, 0, 0, 0);
   }
   50% {
-    border-color: rgba(0, 0, 255, 0.459); /* Red color */
+    border-color: rgba(0, 0, 255, 0.459); 
   }
   100% {
-    border-color: rgba(0, 0, 0, 0); /* Transparent again */
-  }
+    border-color: rgba(0, 0, 0, 0);
+}
 }
 
 .animate-border {
@@ -32,19 +32,19 @@
 
 /* Custom Scrollbar */
 .custom-scrollbar::-webkit-scrollbar {
-  width: 8px; /* Width of the scrollbar */
+  width: 8px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-track {
-  background: #1B2431; /* Light gray background */
+  background: #1B2431; 
   border-radius: 8px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: #4e46e55d; /* Purple scrollbar */
+  background: #4e46e55d; 
   border-radius: 8px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: #1b243177; /* Darker shade on hover */
+  background: #1b243177; 
 }

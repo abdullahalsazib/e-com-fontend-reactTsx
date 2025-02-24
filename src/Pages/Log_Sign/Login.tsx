@@ -81,7 +81,7 @@ const Login = () => {
 
           <div className="flex flex-col py-10 px-2 md:px-10 2xl:px-20 w-[90%] md:w-[50%] bg-white rounded-r-2xl">
             <h1 className="text-4xl font-bold">Login</h1>
-            <p className="text-base text-slate-400">Sign into your account</p>
+            <p className="text-base text-slate-400 py-3">Sign into your account</p>
 
             <form
               onSubmit={handleSubmit(saveForm)}
@@ -140,7 +140,7 @@ const Login = () => {
             </form>
 
             <div className="w-full flex flex-col items-center gap-3">
-              <div className="w-full flex items-center">
+              <div className="w-full flex items-center py-5">
                 <hr className="border-gray-300 border-t w-full" />
                 <span className="bg-white px-3 text-[18px]">or</span>
                 <hr className="border-gray-300 border-t w-full" />
@@ -174,7 +174,7 @@ export const SubmitButton: React.FC<SubmitButtonProps> = ({
   onClick,
 }) => (
   <button
-    className="w-full py-3 border-2 border-white bg-[#F56061] hover:bg-white hover:text-black hover:border-red-400"
+    className="w-full py-3 border-2 border-white bg-[#F56061] hover:bg-white hover:text-black hover:border-red-400 duration-300 active:scale-110 cursor-pointer text-white"
     type={type}
     onClick={onClick}
   >

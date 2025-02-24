@@ -87,7 +87,7 @@ export const Navber = () => {
           />
 
           {isDropdownOpen && (
-            <div className="absolute right-0 top-14 w-48 bg-white shadow-lg rounded-lg py-2 transition-all duration-300 border border-slate-200">
+            <div className="absolute right-0 top-14 w-52 bg-white shadow-lg rounded-md py-2 transition-all duration-300 border border-slate-200">
               {user ? (
                 <>
                   <h1 className="block px-4 py-2 hover:bg-gray-100">
@@ -109,8 +109,9 @@ export const Navber = () => {
                   >
                     ✏️ Edit Profile
                   </Link> */}
-
-                  <Logout />
+                  <div className=" w-full py-3 flex items-center justify-start px-5 text-sm">
+                    <Logout />
+                  </div>
                 </>
               ) : (
                 <>

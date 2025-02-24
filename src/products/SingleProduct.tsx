@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getProductById, ProductProps } from "../api/Product";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useCart } from "../context/ProductContext";
 import { FaAngleRight } from "react-icons/fa";
 import { BiRightArrow, BiSolidStar, BiStar } from "react-icons/bi";
@@ -154,7 +154,7 @@ const SingleProduct = () => {
           </div>
         </div>
       </div>
-      <Testemonila/>
+      <Testemonila />
 
       <Footer />
     </div>
@@ -182,9 +182,16 @@ const CommonBtnCart: React.FC<{
 export const SeeMoreBtn: React.FC<{
   title: string;
 }> = ({ title }) => {
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate("/shop");
+  };
   return (
     <>
-      <button className=" capitalize text-sm py-3 px-20 active:scale-105 group/icon rounded-md text-orange-500 cursor-pointer hover:bg-orange-500 hover:text-white duration-200 border-2 border-orange-400 flex items-center justify-center gap-5">
+      <button
+        onClick={handleClick}
+        className=" capitalize text-sm py-3 px-20 active:scale-105 group/icon rounded-md text-orange-500 cursor-pointer hover:bg-orange-500 hover:text-white duration-200 border-2 border-orange-400 flex items-center justify-center gap-5"
+      >
         {title}
         <BiRightArrow className=" group-hover/icon:scale-125 group-hover/icon:translate-x-10 duration-500" />
       </button>

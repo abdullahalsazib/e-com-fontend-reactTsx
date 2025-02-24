@@ -65,7 +65,7 @@ const Login = () => {
     <>
       <Alert />
       <div className="w-full h-screen flex items-center justify-center">
-        <div className="w-full md:w-[90%] lg:w-[80%] 2xl:w-[60%] h-full lg:h-[80vh] py-0 md:py-10 flex items-center justify-between md:flex-row flex-col rounded-lg shadow-xl">
+        <div className="w-full md:w-[90%] lg:w-[80%] 2xl:w-[60%] h-full lg:h-[80vh] py-0 md:py-10 flex items-center justify-center  md:justify-between md:flex-row flex-col rounded-lg shadow-xl">
           <div className="hidden md:flex items-center justify-between flex-col w-[50%] h-full lg:h-[80vh] bg-[#F67878] p-10 rounded-s-2xl">
             <img
               src="https://wpocean.com/html/tf/pengu/assets/images/login.png"

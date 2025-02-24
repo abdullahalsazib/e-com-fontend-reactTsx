@@ -2,11 +2,6 @@ import axios from "axios";
 import { useForm, SubmitHandler } from "react-hook-form";
 import LineFooter from "../Dashboard/LineFooter";
 import { Link, useNavigate } from "react-router-dom";
-import {
-  RiFacebookBoxFill,
-  RiLinkedinBoxFill,
-  RiTwitterXFill,
-} from "react-icons/ri";
 import { SubmitButton } from "./Login";
 import useAlertStore from "../../components/aleartStore";
 import Alert from "../../components/Alert";
@@ -48,7 +43,7 @@ function Register() {
     <>
       <Alert />
       <div className="w-full h-screen flex items-center justify-center flex-col py-10">
-        <div className="w-full md:w-[90%] lg:w-[80%] 2xl:w-[60%] h-full lg:h-[80vh] py-0 md:py-10 flex items-center justify-between md:flex-row flex-col rounded-lg shadow-xl">
+        <div className="w-full md:w-[90%] lg:w-[80%] 2xl:w-[60%] h-full lg:h-[80vh] py-0 md:py-10 flex items-center justify-center md:justify-between md:flex-row flex-col rounded-lg shadow-xl">
           {/* Left Section */}
           <div className="hidden md:flex items-center justify-between flex-col w-[50%] h-full lg:h-[80vh] bg-[#F67878] p-10 rounded-s-2xl">
             <div className="flex items-center justify-between w-full">
@@ -177,11 +172,12 @@ function Register() {
                 </h1>
               </div>
 
-              <div className="flex items-center justify-between text-4xl gap-4">
+              {/* <div className="flex items-center justify-between text-4xl gap-4">
                 <RiFacebookBoxFill />
+
                 <RiTwitterXFill />
                 <RiLinkedinBoxFill />
-              </div>
+              </div> */}
 
               <h3 className="text-[15px]">
                 I have an account!{" "}

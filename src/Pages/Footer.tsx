@@ -92,16 +92,32 @@ export const Footer = () => {
 
           <h2 className="text-lg font-semibold mt-6">Follow Us</h2>
           <div className="flex space-x-4 mt-3">
-            <a href="#" className="text-gray-400 hover:text-white">
+            <a
+              href="https://www.facebook.com/abdullahalsazib22"
+              target="_blank"
+              className="text-gray-400 dark:hover:text-slate-500 hover:text-black"
+            >
               <FaFacebookF size={20} />
             </a>
-            <a href="#" className="text-gray-400 hover:text-white">
+            <a
+              href="https://x.com/AbdullahAlSazib"
+              target="_blank"
+              className="text-gray-400 dark:hover:text-slate-500 hover:text-black"
+            >
               <FaTwitter size={20} />
             </a>
-            <a href="#" className="text-gray-400 hover:text-white">
+            <a
+              href="https://www.instagram.com/abdullah_al_sazib"
+              target="_blank"
+              className="text-gray-400 dark:hover:text-slate-500 hover:text-black"
+            >
               <FaInstagram size={20} />
             </a>
-            <a href="#" className="text-gray-400 hover:text-white">
+            <a
+              href="https://www.linkedin.com/in/abdullah-al-sazib-a79102244/"
+              target="_blank"
+              className="text-gray-400 dark:hover:text-slate-500 hover:text-black"
+            >
               <FaLinkedinIn size={20} />
             </a>
           </div>
@@ -109,7 +125,7 @@ export const Footer = () => {
       </div>
 
       <div className="border-t border-gray-700 mt-8 pt-4 text-center text-gray-500">
-       <LineFooter/>
+        <LineFooter />
       </div>
     </footer>
   );

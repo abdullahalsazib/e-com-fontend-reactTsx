@@ -10,7 +10,7 @@ import { MdOutlineShoppingCart } from "react-icons/md";
 import { BsBagX } from "react-icons/bs";
 import { useCart } from "../context/ProductContext";
 import { RiDeleteBin5Line } from "react-icons/ri";
-
+import {motion} from "framer-motion";
 export const Navber = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isMenu, setIsMenu] = useState<boolean>(false);
@@ -48,13 +48,23 @@ export const Navber = () => {
         ref={dropdownRef}
       >
         {/* Logo */}
-        <Link to="/">
-          <img
-            className="xl:w-35 w-32"
-            src="https://wpocean.com/html/tf/pengu/assets/images/logo.svg"
-            alt="Logo"
-          />
-        </Link>
+        <motion.div
+          initial={{ transform: "translateX(-150%)" }}
+          animate={{
+            transform: "translateX(0%)",
+            transition: {
+              duration: 1,
+            },
+          }}
+        >
+          <Link to="/">
+            <img
+              className="xl:w-35 w-32"
+              src="https://wpocean.com/html/tf/pengu/assets/images/logo.svg"
+              alt="Logo"
+            />
+          </Link>
+        </motion.div>
 
         {/* Navigation Links */}
         <ul
@@ -103,12 +113,7 @@ export const Navber = () => {
                   >
                     📊 Dashboard
                   </Link>
-                  {/* <Link
-                    to="/update"
-                    className="block px-4 py-2 hover:bg-gray-100"
-                  >
-                    ✏️ Edit Profile
-                  </Link> */}
+
                   <div className=" w-full py-3 flex items-center justify-start px-5 text-sm">
                     <Logout />
                   </div>

@@ -84,11 +84,3 @@ const AppContent = () => {
 
 export default AppContent;
 
-// <Route
-//   path="/dashboard/*"
-//   element={
-//     <PrivateRoute>
-//       <Dashboard />
-//     </PrivateRoute>
-//   }
-// />;
